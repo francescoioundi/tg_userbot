@@ -1,10 +1,6 @@
 <?php
-//al posto di exit; usa return;
-if ($msg == "/start") {
-  @scrivendo($chatID); //stato sta scrivendo
-  sm($chatID, "Ciao! Questo è un messaggio con risposta.", 1); //con 1 il bot risponderà al messaggio
-  sm($chatID, "Ciao! Questo è un messaggio senza risposta.");
-}
-if ($msg == "/info") {
-  sm($chatID, "ChatID: $chatID \n UserID: $userID \n Tipo: $type");
+if (isset($update['update']['message']['out']) and $update['update']['message']['out'] == true) return 0;
+if (!isset($msg)) return 0;
+if ($msg == '/start') {
+  sm($chatID, 'Ciao!');
 }
